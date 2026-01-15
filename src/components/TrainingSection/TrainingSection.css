@@ -1,0 +1,159 @@
+.training {
+    background: radial-gradient(
+        circle at top,
+        rgba(214, 166, 60, 0.12),
+        transparent 40%
+      ),
+      linear-gradient(135deg, #061c28, #02131d);
+    padding: 90px 24px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Heading */
+  .training h2 {
+    font-size: 42px;
+    margin-bottom: 40px;
+  }
+  
+  .training h2 span {
+    color: #d6a63c;
+  }
+  
+  /* Tabs */
+  .training-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+  
+  .training-tabs button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 8px;
+    transition: color 0.3s ease;
+  }
+  
+  .training-tabs button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #d6a63c;
+    transition: width 0.4s ease;
+  }
+  
+  .training-tabs button:hover {
+    color: #fff;
+  }
+  
+  .training-tabs button.active {
+    color: #fff;
+  }
+  
+  .training-tabs button.active::after {
+    width: 100%;
+  }
+  
+  /* Panel */
+  .training-panel {
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-radius: 26px;
+    padding: 46px 50px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 30px 70px rgba(0, 0, 0, 0.6);
+    animation: fadeSlide 0.6s ease;
+  }
+  
+  /* Description */
+  .training-desc {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 36px;
+  }
+  
+  /* Lists */
+  .training-lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .training-lists ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .training-lists li {
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    background: linear-gradient(
+      90deg,
+      rgba(214, 166, 60, 0.15),
+      transparent
+    );
+    text-align: left;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .training-lists li:hover {
+    transform: translateX(6px);
+    background: linear-gradient(
+      90deg,
+      rgba(214, 166, 60, 0.35),
+      transparent
+    );
+  }
+  
+  /* Animation */
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .training h2 {
+      font-size: 32px;
+    }
+  
+    .training-panel {
+      padding: 30px 24px;
+    }
+  
+    .training-lists {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  .training {
+    margin-top: -80px; /* overlap stats */
+    padding-top: 120px;
+    position: relative;
+    z-index: 2;
+  }
+  .training-panel {
+    background: rgba(255, 255, 255, 0.05); /* softer */
+    border: none; /* remove hard edge */
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  }
+  

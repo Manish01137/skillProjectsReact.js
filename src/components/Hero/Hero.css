@@ -182,3 +182,46 @@
     gap: 16px;
   }
 }
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+/* Background layers remain same */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+}
+
+.hero-bg.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 15, 25, 0.95) 45%,
+    rgba(6, 15, 25, 0.6) 70%,
+    rgba(6, 15, 25, 0.25) 100%
+  );
+  z-index: 1;
+}
+
+/* ✅ IMPORTANT FIX */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding-left: 80px; /* left spacing */
+  text-align: left;   /* force left text */
+}

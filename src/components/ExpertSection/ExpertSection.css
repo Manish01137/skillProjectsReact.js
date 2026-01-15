@@ -1,0 +1,130 @@
+.expert {
+    background: #fbf6ee;
+    padding: 50px 24px; /* ⬅ MUCH SMALLER */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  
+  .expert.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* HEADER */
+  .expert-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 36px; /* ⬅ reduced */
+  }
+  
+  .expert-badge {
+    background: #0b2b3c;
+    color: #f0c15a;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+  }
+  
+  .expert-header h2 {
+    font-size: 36px; /* ⬅ smaller */
+    color: #0b2b3c;
+    margin: 12px 0;
+  }
+  
+  .expert-header h2 span {
+    color: #d6a63c;
+  }
+  
+  .expert-header p {
+    font-size: 16px;
+    color: #6c7a86;
+  }
+  
+  /* LAYOUT */
+  .expert-wrapper {
+    max-width: 1000px; /* ⬅ narrower */
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 36px; /* ⬅ smaller gap */
+  }
+  
+  /* IMAGE */
+  .expert-image {
+    flex: 1;
+    max-height: 360px; /* ⬅ KEY FIX */
+    overflow: hidden;
+    border-radius: 22px;
+  }
+  
+  .expert-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ⬅ prevents huge image */
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    transition: transform 0.5s ease;
+  }
+  
+  .expert-image img:hover {
+    transform: scale(1.04);
+  }
+  
+  /* STATS */
+  .expert-stats {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* ⬅ tighter */
+  }
+  
+  .expert-card {
+    background: #ffffff;
+    padding: 20px 22px; /* ⬅ smaller cards */
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+  }
+  
+  .expert-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .expert-card h3 {
+    font-size: 28px; /* ⬅ smaller number */
+    color: #0b2b3c;
+  }
+  
+  .expert-card h3 span {
+    color: #d6a63c;
+  }
+  
+  .expert-card p {
+    font-size: 14px;
+    color: #6c7a86;
+  }
+  
+  .expert-card.highlight {
+    background: linear-gradient(135deg, #0b2b3c, #123e55);
+  }
+  
+  .expert-card.highlight h3,
+  .expert-card.highlight p {
+    color: #ffffff;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .expert-wrapper {
+      flex-direction: column;
+    }
+  
+    .expert-image {
+      max-height: 260px; /* ⬅ mobile image height */
+    }
+  
+    .expert-header h2 {
+      font-size: 30px;
+    }
+  }
+  

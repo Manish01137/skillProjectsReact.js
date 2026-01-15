@@ -13,23 +13,23 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length)
-    }, 5000)
-
+    }, 6000) // slower change
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <section className="hero">
-      {/* Background Image Slider */}
-      <div
-        className="hero-bg"
-        style={{ backgroundImage: `url(${images[current]})` }}
-      />
+    <section className="hero" id="hero">
+      {/* Background Layers */}
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`hero-bg ${index === current ? "active" : ""}`}
+          style={{ backgroundImage: `url(${img})` }}
+        />
+      ))}
 
-      {/* Dark Overlay */}
       <div className="hero-overlay"></div>
 
-      {/* Content */}
       <div className="hero-content">
         <span className="hero-badge">Trusted by Leading MNCs</span>
 
@@ -46,18 +46,15 @@ const Hero = () => {
           Book Consultation — Discovery Call
         </button>
 
-        {/* Stats */}
         <div className="hero-stats">
           <div className="stat-card">
             <h3>500+</h3>
             <span>Workshops</span>
           </div>
-
           <div className="stat-card">
             <h3>95%</h3>
             <span>Satisfaction</span>
           </div>
-
           <div className="stat-card">
             <h3>40+</h3>
             <span>Corporate Clients</span>

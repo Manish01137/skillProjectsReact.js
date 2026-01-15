@@ -30,3 +30,26 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+html {
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.app-main {
+  min-height: 100vh;
+}
+
+/* Fix sticky navbar overlap */
+section {
+  scroll-margin-top: 90px; /* adjust to navbar height */
+}
+.dark-section {
+  background: radial-gradient(
+      circle at top,
+      rgba(214, 166, 60, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #061c28, #02131d);
+}
