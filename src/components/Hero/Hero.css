@@ -225,3 +225,78 @@
   padding-left: 80px; /* left spacing */
   text-align: left;   /* force left text */
 }
+/* =========================
+   MOBILE HERO FIX (ONLY)
+========================= */
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 100vh;
+    align-items: flex-end;
+  }
+
+  /* Softer overlay for readability */
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 15, 25, 0.85) 0%,
+      rgba(6, 15, 25, 0.95) 70%
+    );
+  }
+
+  /* Center content */
+  .hero-content {
+    padding: 24px 20px 40px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-badge {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 100%;
+    margin-bottom: 26px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 15px;
+    border-radius: 14px;
+  }
+
+  /* Stats stacked & clean */
+  .hero-stats {
+    margin-top: 32px;
+    gap: 14px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .stat-card h3 {
+    font-size: 22px;
+  }
+
+  .stat-card span {
+    font-size: 12px;
+  }
+
+  /* Improve image focus on mobile */
+  .hero-bg {
+    background-position: center top;
+  }
+}

@@ -1,10 +1,24 @@
 import { NavLink, Link } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "./Navbar.css"
 import logo from "../../assets/images/skillowl-logo.png"
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.querySelector(".navbar")
+      if (window.scrollY > 60) {
+        navbar.classList.add("scrolled")
+      } else {
+        navbar.classList.remove("scrolled")
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <header className="navbar">
@@ -12,7 +26,7 @@ const Navbar = () => {
 
         {/* LEFT: LOGO */}
         <div className="navbar-left">
-          <Link to="/" className="navbar-logo">
+          <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
             <img src={logo} alt="SkillOwl Logo" />
           </Link>
         </div>
@@ -29,10 +43,37 @@ const Navbar = () => {
 
         {/* RIGHT: MENU */}
         <nav className={`navbar-menu ${menuOpen ? "open" : ""}`}>
-          <NavLink to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Home</NavLink>
-          <NavLink to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>About</NavLink>
-          <NavLink to="/services" className="nav-link" onClick={() => setMenuOpen(false)}>Services</NavLink>
-          <NavLink to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</NavLink>
+          <NavLink
+            to="/"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            to="/services"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Services
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact
+          </NavLink>
         </nav>
 
       </div>
