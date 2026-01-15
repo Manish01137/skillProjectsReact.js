@@ -13,25 +13,30 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
-    // If URL has hash (#section), scroll to that section
-    if (location.hash) {
-      const section = document.querySelector(location.hash)
-      if (section) {
-        setTimeout(() => {
-          section.scrollIntoView({
+    const handleScroll = () => {
+      // If URL contains hash (#section)
+      if (location.hash) {
+        const target = document.querySelector(location.hash)
+        if (target) {
+          target.scrollIntoView({
             behavior: "smooth",
             block: "start",
           })
-        }, 100)
+        }
+      } else {
+        // Default scroll to top on route change
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        })
       }
-    } else {
-      // Default scroll to top on route change
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      })
     }
-  }, [location])
+
+    // Delay ensures DOM is fully rendered
+    const timeout = setTimeout(handleScroll, 120)
+
+    return () => clearTimeout(timeout)
+  }, [location.pathname, location.hash])
 
   return (
     <>
