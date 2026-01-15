@@ -1,5 +1,5 @@
 import "./Footer.css"
-import logo from "../../assets/images/skillowl-logo.png"
+import logo from "../../assets/images/skillowlwebsitelogo.png"
 
 const Footer = () => {
   return (
