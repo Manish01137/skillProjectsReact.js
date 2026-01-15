@@ -42,8 +42,8 @@ const ExpertSection = () => {
     return () => observer.disconnect()
   }, [])
 
-  const years = useCountUp(10, visible)
-  const companies = useCountUp(40, visible)
+  const years = useCountUp(15, visible)
+  const companies = useCountUp(100, visible)
 
   return (
     <section className={`expert ${visible ? "show" : ""}`} id="expert" ref={sectionRef}>
