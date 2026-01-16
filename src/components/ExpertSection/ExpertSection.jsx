@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import "./ExpertSection.css"
-import expertImg from "../../assets/images/mam2.png"
+import expertImg from "../../assets/images/m1.jpeg"
 
 const useCountUp = (end, startWhenVisible) => {
   const [count, setCount] = useState(0)

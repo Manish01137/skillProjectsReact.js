@@ -228,74 +228,87 @@
 /* =========================
    MOBILE HERO FIX (ONLY)
 ========================= */
+/* =========================
+   PREMIUM MOBILE HERO FIX
+========================= */
 @media (max-width: 768px) {
 
   .hero {
     min-height: 100vh;
-    align-items: flex-end;
+    align-items: center; /* CENTER vertically */
   }
 
-  /* Softer overlay for readability */
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(6, 15, 25, 0.85) 0%,
-      rgba(6, 15, 25, 0.95) 70%
+      rgba(6, 15, 25, 0.92) 0%,
+      rgba(6, 15, 25, 0.96) 100%
     );
   }
 
-  /* Center content */
   .hero-content {
-    padding: 24px 20px 40px;
+    padding: 20px;
     max-width: 100%;
     text-align: center;
   }
 
+  /* Badge */
   .hero-badge {
-    font-size: 13px;
-    margin-bottom: 16px;
+    font-size: 12px;
+    padding: 6px 14px;
+    margin-bottom: 14px;
   }
 
+  /* Title */
   .hero-title {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 16px;
+    font-size: 30px;
+    line-height: 1.25;
+    margin-bottom: 14px;
   }
 
+  /* Subtitle */
   .hero-subtitle {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
-    max-width: 100%;
+    margin-bottom: 22px;
+  }
+
+  /* CTA */
+  .hero-btn {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 14px;
+    border-radius: 14px;
     margin-bottom: 26px;
   }
 
-  .hero-btn {
-    width: 100%;
-    padding: 15px 0;
-    font-size: 15px;
-    border-radius: 14px;
-  }
-
-  /* Stats stacked & clean */
+  /* 🔥 COMPACT STATS */
   .hero-stats {
-    margin-top: 32px;
-    gap: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 0;
   }
 
   .stat-card {
-    padding: 14px;
+    flex: 1;
+    padding: 12px 6px;
     border-radius: 14px;
+    backdrop-filter: blur(10px);
   }
 
   .stat-card h3 {
-    font-size: 22px;
+    font-size: 18px;
+    margin-bottom: 2px;
   }
 
   .stat-card span {
-    font-size: 12px;
+    font-size: 11px;
+    white-space: nowrap;
   }
 
-  /* Improve image focus on mobile */
+  /* Image focus */
   .hero-bg {
     background-position: center top;
   }
