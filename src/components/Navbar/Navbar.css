@@ -347,3 +347,23 @@
     border-radius: 18px;
   }
 }
+/* ===== NAVBAR BASE (TRANSPARENT) ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ===== NAVBAR ON SCROLL ===== */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.12); /* 🔥 glass transparent */
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
