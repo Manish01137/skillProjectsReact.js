@@ -1,80 +1,56 @@
 import { NavLink, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import "./Navbar.css"
-import logo from "../../assets/images/skillowl-logo.png"
+import logo from "../../assets/images/skillowlwebsitelogo.png"
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const navbar = document.querySelector(".navbar")
-      if (window.scrollY > 60) {
-        navbar.classList.add("scrolled")
-      } else {
-        navbar.classList.remove("scrolled")
-      }
+      setScrolled(window.scrollY > 60)
     }
-
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
 
-        {/* LEFT: LOGO */}
-        <div className="navbar-left">
-          <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
-            <img src={logo} alt="SkillOwl Logo" />
-          </Link>
-        </div>
+        {/* BIG LOGO ONLY */}
+        <Link
+          to="/"
+          className="navbar-logo"
+          onClick={() => setMenuOpen(false)}
+        >
+          <img src={logo} alt="SkillOwl Logo" />
+        </Link>
 
-        {/* HAMBURGER (MOBILE) */}
+        {/* MENU */}
+        <nav className={`navbar-menu ${menuOpen ? "open" : ""}`}>
+          <NavLink to="/" onClick={() => setMenuOpen(false)}>Home</NavLink>
+          <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
+          <NavLink to="/services" onClick={() => setMenuOpen(false)}>Services</NavLink>
+          <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
+
+          {/* MOBILE CTA */}
+          <button className="nav-cta mobile">Book a Call</button>
+        </nav>
+
+        {/* DESKTOP CTA */}
+        <button className="nav-cta desktop">Book a Call</button>
+
+        {/* HAMBURGER */}
         <div
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </div>
-
-        {/* RIGHT: MENU */}
-        <nav className={`navbar-menu ${menuOpen ? "open" : ""}`}>
-          <NavLink
-            to="/"
-            className="nav-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            Home
-          </NavLink>
-
-          <NavLink
-            to="/about"
-            className="nav-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            About
-          </NavLink>
-
-          <NavLink
-            to="/services"
-            className="nav-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            Services
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            className="nav-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            Contact
-          </NavLink>
-        </nav>
 
       </div>
     </header>

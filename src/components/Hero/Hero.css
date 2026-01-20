@@ -1,233 +1,180 @@
-/* =========================
-   HERO BASE
-========================= */
 .hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+  height: 100vh;
   overflow: hidden;
-  background: #fff;
+  color: #fff;
 }
 
-/* =========================
-   BACKGROUND IMAGES
-========================= */
+/* Background slider */
 .hero-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  transition: opacity 1.5s ease;
 }
 
 .hero-bg.active {
   opacity: 1;
 }
 
-/* =========================
-   CONTENT (LEFT ALIGNED)
-========================= */
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 15, 30, 0.95) 25%,
+    rgba(10, 15, 30, 0.75) 55%,
+    rgba(10, 15, 30, 0.25) 100%
+  );
+}
+
+/* Content */
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 680px;
-  padding-left: 80px;
-  padding-right: 20px;
-  text-align: left;
+  padding: 160px 60px 0;
 }
 
-/* =========================
-   BADGE
-========================= */
+/* Badge */
 .hero-badge {
-  display: inline-block;
-  padding: 7px 16px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.08);
-  color: #111;
-  font-size: 13px;
-  margin-bottom: 16px;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  margin-bottom: 28px;
 }
 
-/* =========================
-   TITLE
-========================= */
+.hero-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: #fbbf24;
+  border-radius: 50%;
+}
+
+/* Title */
 .hero-title {
-  font-size: 62px;
-  line-height: 1.1;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #111;
+  font-size: 58px;
+  line-height: 1.08;
+  margin-bottom: 22px;
 }
 
-.hero-title span {
-  color: #c9a227; /* premium gold */
+.hero-title .highlight {
+  color: #fbbf24;
 }
 
-/* =========================
-   SUBTITLE
-========================= */
+/* Subtitle */
 .hero-subtitle {
-  font-size: 17px;
-  color: #333;
+  font-size: 18px;
+  color: #d1d5db;
   max-width: 520px;
-  margin-bottom: 26px;
+  margin-bottom: 40px;
 }
 
-/* =========================
-   CTA BUTTON
-========================= */
-.hero-btn {
-  padding: 15px 34px;
-  border-radius: 14px;
+/* Buttons */
+.hero-actions {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 55px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
   border: none;
-  font-size: 14.5px;
+  padding: 14px 30px;
+  border-radius: 30px;
   font-weight: 600;
   cursor: pointer;
-  background: linear-gradient(135deg, #d4af37, #f3d77a);
-  color: #1a1a1a;
-  box-shadow: 0 14px 32px rgba(212, 175, 55, 0.35);
-  transition: transform 0.25s ease;
 }
 
-.hero-btn:hover {
-  transform: translateY(-3px);
+.btn-outline {
+  background: transparent;
+  border: 1px solid #9ca3af;
+  padding: 14px 28px;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
 }
 
-/* =========================
-   STATS (LEFT, COMPACT)
-========================= */
+/* Stats */
 .hero-stats {
   display: flex;
-  gap: 18px;
-  margin-top: 34px;
+  gap: 50px;
 }
 
-.stat-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px);
-  padding: 14px 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.06);
+.stat h3 {
+  font-size: 34px;
+  margin-bottom: 6px;
 }
 
-.stat-card h3 {
-  font-size: 22px;
-  color: #c9a227;
-  margin-bottom: 2px;
+.stat p {
+  font-size: 13px;
+  color: #9ca3af;
+  letter-spacing: 1px;
 }
 
-.stat-card span {
+/* Slider dots */
+.hero-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.hero-dots span {
+  width: 8px;
+  height: 8px;
+  background: #6b7280;
+  border-radius: 50%;
+}
+
+.hero-dots span.active {
+  width: 22px;
+  border-radius: 10px;
+  background: #fbbf24;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  right: 25px;
+  bottom: 80px;
+  writing-mode: vertical-rl;
   font-size: 12px;
-  color: #444;
+  letter-spacing: 2px;
+  color: #9ca3af;
+  z-index: 2;
 }
 
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 1024px) {
+.scroll-indicator .line {
+  display: block;
+  height: 40px;
+  width: 1px;
+  background: #9ca3af;
+  margin: 10px auto 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
   .hero-content {
-    padding-left: 50px;
+    padding: 140px 25px 0;
   }
 
   .hero-title {
-    font-size: 48px;
+    font-size: 40px;
   }
-}
-
-/* =========================
-   🔥 MOBILE – LEFT & CLEAN
-========================= */
-@media (max-width: 768px) {
-
-  .hero {
-    min-height: 100vh;
-    align-items: center;
-  }
-
-  .hero-content {
-    padding: 20px;
-    max-width: 100%;
-    text-align: left; /* KEEP LEFT */
-  }
-
-  .hero-badge {
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-
-  .hero-title {
-    font-size: 36px;
-    line-height: 1.15;
-    margin-bottom: 12px;
-  }
-
-  .hero-subtitle {
-    font-size: 14px;
-    margin-bottom: 18px;
-  }
-
-  .hero-btn {
-    width: fit-content;
-    padding: 14px 24px;
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-
-  /* MINI STATS */
-  .hero-stats {
-    gap: 8px;
-    margin-top: 0;
-  }
-
-  .stat-card {
-    flex: 1;
-    padding: 10px 6px;
-    border-radius: 12px;
-  }
-
-  .stat-card h3 {
-    font-size: 16px;
-  }
-
-  .stat-card span {
-    font-size: 10px;
-    white-space: nowrap;
-  }
-
-  .hero-bg {
-    background-position: center top;
-  }
-}
-@media (max-width: 768px) {
 
   .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* two cards in one row */
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  /* Third card goes full width */
-  .hero-stats .stat-card:nth-child(3) {
-    grid-column: span 2;
-  }
-
-  .stat-card {
-    padding: 10px 8px;
-    border-radius: 12px;
-    text-align: center;
-  }
-
-  .stat-card h3 {
-    font-size: 16px;
-  }
-
-  .stat-card span {
-    font-size: 11px;
-    white-space: nowrap;
+    gap: 30px;
   }
 }

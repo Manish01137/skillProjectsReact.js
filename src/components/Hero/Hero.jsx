@@ -6,7 +6,7 @@ import hero2 from "../../assets/images/m1hd.jpeg"
 import hero3 from "../../assets/images/m2hd.jpeg"
 import hero4 from "../../assets/images/m3hd.jpeg"
 
-const images = [hero1, hero2, hero3,hero4]
+const images = [hero1, hero2, hero3, hero4]
 
 const Hero = () => {
   const [current, setCurrent] = useState(0)
@@ -14,13 +14,13 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length)
-    }, 6000) // slower change
+    }, 6000)
     return () => clearInterval(interval)
   }, [])
 
   return (
     <section className="hero" id="hero">
-      {/* Background Layers */}
+      {/* Background Images */}
       {images.map((img, index) => (
         <div
           key={index}
@@ -29,38 +29,67 @@ const Hero = () => {
         />
       ))}
 
-      <div className="hero-overlay"></div>
+      {/* Gradient Overlay */}
+      <div className="hero-overlay" />
 
+      {/* Content */}
       <div className="hero-content">
-        <span className="hero-badge">Trusted by Leading MNCs</span>
+
+        <div className="hero-badge">
+          <span className="dot" />
+          Trusted by Leading MNCs
+        </div>
 
         <h1 className="hero-title">
-          India's Corporate <br />
-          <span>Skill</span> Development Partner
+          India&apos;s <br />
+          <span className="highlight">Corporate</span> Skill <br />
+          Development Partner
         </h1>
 
         <p className="hero-subtitle">
           Empowering organizations with expert-led training programs.
         </p>
 
-        <button className="hero-btn">
-          Book Consultation — Discovery Call
-        </button>
+        <div className="hero-actions">
+          <button className="btn-primary">
+            Book Consultation →
+          </button>
+
+          <button className="btn-outline">
+            ▶ Discovery Call
+          </button>
+        </div>
 
         <div className="hero-stats">
-          <div className="stat-card">
+          <div className="stat">
             <h3>500+</h3>
-            <span>Workshops</span>
+            <p>WORKSHOPS</p>
           </div>
-          <div className="stat-card">
+          <div className="stat">
             <h3>95%</h3>
-            <span>Satisfaction</span>
+            <p>SATISFACTION</p>
           </div>
-          <div className="stat-card">
+          <div className="stat">
             <h3>40+</h3>
-            <span>Corporate Clients</span>
+            <p>CLIENTS</p>
           </div>
         </div>
+      </div>
+
+      {/* Slider Dots */}
+      <div className="hero-dots">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={index === current ? "active" : ""}
+          />
+        ))}
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="scroll-indicator">
+        SCROLL
+        <span className="line" />
       </div>
     </section>
   )
