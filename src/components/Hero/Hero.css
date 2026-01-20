@@ -5,7 +5,9 @@
   color: #fff;
 }
 
-/* Background slider */
+/* ===============================
+   BACKGROUND SLIDER
+================================ */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -19,7 +21,9 @@
   opacity: 1;
 }
 
-/* Overlay */
+/* ===============================
+   OVERLAY
+================================ */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -31,7 +35,9 @@
   );
 }
 
-/* Content */
+/* ===============================
+   CONTENT
+================================ */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -39,7 +45,9 @@
   padding: 160px 60px 0;
 }
 
-/* Badge */
+/* ===============================
+   BADGE
+================================ */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -59,7 +67,9 @@
   border-radius: 50%;
 }
 
-/* Title */
+/* ===============================
+   TITLE
+================================ */
 .hero-title {
   font-size: 58px;
   line-height: 1.08;
@@ -70,7 +80,9 @@
   color: #fbbf24;
 }
 
-/* Subtitle */
+/* ===============================
+   SUBTITLE
+================================ */
 .hero-subtitle {
   font-size: 18px;
   color: #d1d5db;
@@ -78,7 +90,9 @@
   margin-bottom: 40px;
 }
 
-/* Buttons */
+/* ===============================
+   BUTTONS
+================================ */
 .hero-actions {
   display: flex;
   gap: 22px;
@@ -103,7 +117,9 @@
   cursor: pointer;
 }
 
-/* Stats */
+/* ===============================
+   STATS (DESKTOP)
+================================ */
 .hero-stats {
   display: flex;
   gap: 50px;
@@ -120,7 +136,9 @@
   letter-spacing: 1px;
 }
 
-/* Slider dots */
+/* ===============================
+   SLIDER DOTS
+================================ */
 .hero-dots {
   position: absolute;
   bottom: 30px;
@@ -144,7 +162,9 @@
   background: #fbbf24;
 }
 
-/* Scroll indicator */
+/* ===============================
+   SCROLL INDICATOR
+================================ */
 .scroll-indicator {
   position: absolute;
   right: 25px;
@@ -164,17 +184,106 @@
   margin: 10px auto 0;
 }
 
-/* Mobile */
+/* ===============================
+   MOBILE RESPONSIVE FIX (IMPORTANT)
+================================ */
 @media (max-width: 768px) {
-  .hero-content {
-    padding: 140px 25px 0;
-  }
-
-  .hero-title {
-    font-size: 40px;
-  }
-
+  /* Keep stats in ONE LINE */
   .hero-stats {
-    gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* Reduce number size */
+  .stat h3 {
+    font-size: 22px;       /* ⬅️ smaller numbers */
+    margin-bottom: 4px;
+  }
+
+  /* Reduce label size */
+  .stat p {
+    font-size: 11px;
+    letter-spacing: 0.8px;
+  }
+}
+/* ===============================
+   MOBILE RESPONSIVE (FINAL)
+================================ */
+@media (max-width: 768px) {
+
+  .hero {
+    height: 100svh;
+  }
+
+  /* Content center alignment */
+  .hero-content {
+    max-width: 100%;
+    padding: 120px 20px 0;
+    text-align: center;
+  }
+
+  /* Badge */
+  .hero-badge {
+    font-size: 12px;
+    padding: 6px 14px;
+    margin-bottom: 18px;
+    justify-content: center;
+  }
+
+  /* Title */
+  .hero-title {
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: 15px;
+    margin: 0 auto 30px;
+  }
+
+  /* Buttons stack */
+  .hero-actions {
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 15px;
+  }
+
+  /* Stats in one line */
+  .hero-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .stat h3 {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .stat p {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+  }
+
+  /* Slider dots */
+  .hero-dots {
+    bottom: 18px;
+  }
+
+  /* Hide scroll indicator on mobile */
+  .scroll-indicator {
+    display: none;
   }
 }
