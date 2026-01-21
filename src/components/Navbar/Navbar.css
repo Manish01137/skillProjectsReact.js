@@ -142,3 +142,32 @@
     padding: 14px 18px;
   }
 }
+/* BASE MENU LINK */
+.navbar-menu a {
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(226, 232, 240, 0.85);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* ACTIVE → NO BACKGROUND */
+.navbar-menu a.active {
+  color: #ffffff;
+  background: none;
+}
+
+/* HOVER → APP PREVIEW STYLE (GREY PILL) */
+.navbar-menu a:hover {
+  background: rgba(255, 255, 255, 0.12); /* 👈 exact grey hover */
+  color: #ffffff;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 900px) {
+  .navbar-menu a:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
