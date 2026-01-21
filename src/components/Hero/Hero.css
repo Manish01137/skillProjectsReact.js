@@ -2,7 +2,8 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  color: #fff;
+  color: #ffffff;
+  background: #131829;
 }
 
 /* ===============================
@@ -14,11 +15,13 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1.5s ease;
+  transform: scale(1);
+  transition: opacity 1.8s ease, transform 6.5s ease;
 }
 
 .hero-bg.active {
   opacity: 1;
+  transform: scale(1.08);
 }
 
 /* ===============================
@@ -29,9 +32,10 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(10, 15, 30, 0.95) 25%,
-    rgba(10, 15, 30, 0.75) 55%,
-    rgba(10, 15, 30, 0.25) 100%
+    rgba(19, 24, 41, 0.96) 15%,
+    rgba(39, 37, 46, 0.85) 45%,
+    rgba(39, 37, 46, 0.6) 70%,
+    rgba(39, 37, 46, 0.25) 100%
   );
 }
 
@@ -41,7 +45,7 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  max-width: 720px;
   padding: 160px 60px 0;
 }
 
@@ -52,7 +56,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(251, 191, 36, 0.15);
+  background: rgba(251, 191, 36, 0.12);
   color: #fbbf24;
   padding: 8px 18px;
   border-radius: 30px;
@@ -68,16 +72,42 @@
 }
 
 /* ===============================
-   TITLE
+   TITLE (MATCH IMAGE)
 ================================ */
 .hero-title {
   font-size: 58px;
-  line-height: 1.08;
+  line-height: 1.1;
   margin-bottom: 22px;
+  letter-spacing: -0.6px;
 }
 
-.hero-title .highlight {
-  color: #fbbf24;
+.title-light {
+  color: rgba(248, 250, 252, 0.95);
+}
+
+.title-gold-strong {
+  background: linear-gradient(
+    180deg,
+    #f5b301 0%,
+    #fbbf24 45%,
+    #fde68a 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-gold-soft {
+  background: linear-gradient(
+    180deg,
+    #fde68a 0%,
+    #fff1b8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-white {
+  color: rgba(255, 255, 255, 0.98);
 }
 
 /* ===============================
@@ -85,9 +115,10 @@
 ================================ */
 .hero-subtitle {
   font-size: 18px;
-  color: #d1d5db;
+  line-height: 1.65;
+  color: rgba(226, 232, 240, 0.9);
   max-width: 520px;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 /* ===============================
@@ -96,29 +127,49 @@
 .hero-actions {
   display: flex;
   gap: 22px;
-  margin-bottom: 55px;
+  margin-bottom: 56px;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   border: none;
-  padding: 14px 30px;
-  border-radius: 30px;
+  padding: 15px 32px;
+  border-radius: 32px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.35s ease;
 }
 
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 25px rgba(251, 191, 36, 0.45),
+    0 0 45px rgba(251, 191, 36, 0.25);
+}
+
+/* SILVER GLASS BUTTON */
 .btn-outline {
-  background: transparent;
-  border: 1px solid #9ca3af;
-  padding: 14px 28px;
-  border-radius: 30px;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(203, 213, 225, 0.35);
+  padding: 15px 30px;
+  border-radius: 32px;
+  color: #ffffff;
   cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.35s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(203, 213, 225, 0.18);
+  border-color: rgba(226, 232, 240, 0.6);
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 25px rgba(148, 163, 184, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 /* ===============================
-   STATS (DESKTOP)
+   STATS
 ================================ */
 .hero-stats {
   display: flex;
@@ -137,16 +188,15 @@
 }
 
 /* ===============================
-   SLIDER DOTS
+   DOTS
 ================================ */
 .hero-dots {
   position: absolute;
-  bottom: 30px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  z-index: 2;
 }
 
 .hero-dots span {
@@ -163,7 +213,7 @@
 }
 
 /* ===============================
-   SCROLL INDICATOR
+   SCROLL
 ================================ */
 .scroll-indicator {
   position: absolute;
@@ -173,11 +223,9 @@
   font-size: 12px;
   letter-spacing: 2px;
   color: #9ca3af;
-  z-index: 2;
 }
 
 .scroll-indicator .line {
-  display: block;
   height: 40px;
   width: 1px;
   background: #9ca3af;
@@ -185,104 +233,51 @@
 }
 
 /* ===============================
-   MOBILE RESPONSIVE FIX (IMPORTANT)
+   MOBILE
 ================================ */
 @media (max-width: 768px) {
-  /* Keep stats in ONE LINE */
-  .hero-stats {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    text-align: center;
-  }
-
-  /* Reduce number size */
-  .stat h3 {
-    font-size: 22px;       /* ⬅️ smaller numbers */
-    margin-bottom: 4px;
-  }
-
-  /* Reduce label size */
-  .stat p {
-    font-size: 11px;
-    letter-spacing: 0.8px;
-  }
-}
-/* ===============================
-   MOBILE RESPONSIVE (FINAL)
-================================ */
-@media (max-width: 768px) {
-
   .hero {
     height: 100svh;
   }
 
-  /* Content center alignment */
   .hero-content {
-    max-width: 100%;
     padding: 120px 20px 0;
     text-align: center;
   }
 
-  /* Badge */
-  .hero-badge {
-    font-size: 12px;
-    padding: 6px 14px;
-    margin-bottom: 18px;
-    justify-content: center;
-  }
-
-  /* Title */
   .hero-title {
     font-size: 34px;
     line-height: 1.15;
-    margin-bottom: 16px;
   }
 
-  /* Subtitle */
   .hero-subtitle {
     font-size: 15px;
+    line-height: 1.6;
     margin: 0 auto 30px;
   }
 
-  /* Buttons stack */
   .hero-actions {
     flex-direction: column;
-    gap: 14px;
-    margin-bottom: 36px;
   }
 
   .btn-primary,
   .btn-outline {
     width: 100%;
-    padding: 14px 0;
-    font-size: 15px;
   }
 
-  /* Stats in one line */
   .hero-stats {
-    display: flex;
     justify-content: space-between;
-    gap: 8px;
-    text-align: center;
+    gap: 10px;
   }
 
   .stat h3 {
     font-size: 22px;
-    margin-bottom: 4px;
   }
 
   .stat p {
     font-size: 10px;
-    letter-spacing: 0.6px;
   }
 
-  /* Slider dots */
-  .hero-dots {
-    bottom: 18px;
-  }
-
-  /* Hide scroll indicator on mobile */
   .scroll-indicator {
     display: none;
   }

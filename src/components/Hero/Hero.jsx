@@ -14,7 +14,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length)
-    }, 6000)
+    }, 6500)
     return () => clearInterval(interval)
   }, [])
 
@@ -29,21 +29,21 @@ const Hero = () => {
         />
       ))}
 
-      {/* Gradient Overlay */}
+      {/* Overlay */}
       <div className="hero-overlay" />
 
       {/* Content */}
       <div className="hero-content">
-
         <div className="hero-badge">
           <span className="dot" />
           Trusted by Leading MNCs
         </div>
 
         <h1 className="hero-title">
-          India&apos;s <br />
-          <span className="highlight">Corporate</span> Skill <br />
-          Development Partner
+          <span className="title-light">India&apos;s</span> <br />
+          <span className="title-gold-strong">Corporate</span> <br />
+          <span className="title-gold-soft">Skill</span> <br />
+          <span className="title-white">Development Partner</span>
         </h1>
 
         <p className="hero-subtitle">
@@ -51,13 +51,8 @@ const Hero = () => {
         </p>
 
         <div className="hero-actions">
-          <button className="btn-primary">
-            Book Consultation →
-          </button>
-
-          <button className="btn-outline">
-            ▶ Discovery Call
-          </button>
+          <button className="btn-primary">Book Consultation →</button>
+          <button className="btn-outline">▶ Discovery Call</button>
         </div>
 
         <div className="hero-stats">
@@ -79,10 +74,7 @@ const Hero = () => {
       {/* Slider Dots */}
       <div className="hero-dots">
         {images.map((_, index) => (
-          <span
-            key={index}
-            className={index === current ? "active" : ""}
-          />
+          <span key={index} className={index === current ? "active" : ""} />
         ))}
       </div>
 
