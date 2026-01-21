@@ -19,7 +19,7 @@ const Navbar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
 
-        {/* BIG LOGO ONLY */}
+        {/* LOGO */}
         <Link
           to="/"
           className="navbar-logo"
@@ -34,13 +34,7 @@ const Navbar = () => {
           <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
           <NavLink to="/services" onClick={() => setMenuOpen(false)}>Services</NavLink>
           <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
-
-          {/* MOBILE CTA */}
-          <button className="nav-cta mobile">Book a Call</button>
         </nav>
-
-        {/* DESKTOP CTA */}
-        <button className="nav-cta desktop">Book a Call</button>
 
         {/* HAMBURGER */}
         <div

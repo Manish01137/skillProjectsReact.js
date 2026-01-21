@@ -2,101 +2,72 @@
    NAVBAR BASE
 ================================ */
 .navbar {
-  position: absolute;   /* 👈 IMPORTANT */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 20;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: background 0.4s ease;
 }
 
-
-
-/* Navbar background after scroll */
 .navbar.scrolled {
-  background: rgba(10, 15, 30, 0.95);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(
+    90deg,
+    rgba(19, 24, 41, 0.95),
+    rgba(39, 37, 46, 0.9)
+  );
 }
 
 /* ===============================
-   NAVBAR CONTAINER
+   CONTAINER
 ================================ */
 .navbar-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 30px;          /* ❌ NO vertical padding */
-  height: 100%;
+  padding: 0 30px;
+  height: 110px;
   display: flex;
-  align-items: center;     /* vertically center logo */
+  align-items: center;
   justify-content: space-between;
 }
 
-
 /* ===============================
-   BIG LOGO
+   LOGO
 ================================ */
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
 .navbar-logo img {
-  height: 140px;              /* 🔥 VERY BIG LOGO */
-  width: auto;
+  height: 140px;
   max-width: 280px;
   object-fit: contain;
 }
 
 /* ===============================
-   MENU LINKS
+   MENU
 ================================ */
 .navbar-menu {
   display: flex;
-  gap: 38px;
+  align-items: center; /* ✅ vertical centering */
+  gap: 14px;
 }
 
 .navbar-menu a {
-  color: #e5e7eb;
+  padding: 10px 22px;
+  border-radius: 999px;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  transition: color 0.3s ease;
+  color: rgba(226, 232, 240, 0.85);
+  transition: color 0.25s ease, background 0.25s ease;
 }
 
-.navbar-menu a:hover,
+/* ACTIVE → subtle, NO background */
 .navbar-menu a.active {
+  color: #ffffff;
+}
+
+/* HOVER → yellow appears ONLY on hover */
+.navbar-menu a:hover {
+  background: rgba(251, 191, 36, 0.16);
   color: #fbbf24;
-}
-
-/* ===============================
-   CTA BUTTON
-================================ */
-.nav-cta {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  border: none;
-  padding: 12px 26px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  color: #111;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.nav-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(251, 191, 36, 0.35);
-}
-
-.nav-cta.desktop {
-  display: block;
-}
-
-.nav-cta.mobile {
-  display: none;
-  margin-top: 30px;
 }
 
 /* ===============================
@@ -129,11 +100,15 @@
 }
 
 /* ===============================
-   MOBILE STYLES
+   MOBILE
 ================================ */
 @media (max-width: 900px) {
+  .navbar-container {
+    height: 90px;
+  }
+
   .navbar-logo img {
-    height: 100px;            /* Slightly smaller on mobile */
+    height: 100px;
   }
 
   .hamburger {
@@ -146,10 +121,14 @@
     right: -100%;
     height: 100vh;
     width: 260px;
-    background: rgba(10, 15, 30, 0.98);
+    background: linear-gradient(
+      180deg,
+      rgba(19, 24, 41, 0.98),
+      rgba(39, 37, 46, 0.95)
+    );
     flex-direction: column;
-    padding: 120px 30px;
-    gap: 28px;
+    padding: 120px 24px;
+    gap: 16px;
     transition: right 0.4s ease;
   }
 
@@ -157,11 +136,9 @@
     right: 0;
   }
 
-  .nav-cta.desktop {
-    display: none;
-  }
-
-  .nav-cta.mobile {
-    display: block;
+  .navbar-menu a {
+    width: 100%;
+    text-align: left;
+    padding: 14px 18px;
   }
 }
