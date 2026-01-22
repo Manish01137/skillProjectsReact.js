@@ -24,7 +24,7 @@
 .navbar-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 20px;           /* ⬅️ reduced from 30px */
   height: 110px;
   display: flex;
   align-items: center;
@@ -34,6 +34,10 @@
 /* ===============================
    LOGO
 ================================ */
+.navbar-logo {
+  margin-left: -20px;        /* ⬅️ KEY CHANGE: moves logo toward corner */
+}
+
 .navbar-logo img {
   height: 140px;
   max-width: 280px;
@@ -49,7 +53,6 @@
   gap: 14px;
 }
 
-/* NORMAL LINKS */
 .navbar-menu a,
 .nav-link {
   padding: 10px 22px;
@@ -81,7 +84,6 @@
   position: relative;
 }
 
-/* DROPDOWN MENU */
 .dropdown-menu {
   position: absolute;
   top: 120%;
@@ -102,14 +104,12 @@
   z-index: 50;
 }
 
-/* SHOW ON HOVER */
 .nav-dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* DROPDOWN LINKS */
 .dropdown-menu a {
   display: block;
   padding: 10px 14px;
@@ -158,6 +158,11 @@
 @media (max-width: 900px) {
   .navbar-container {
     height: 90px;
+    padding: 0 20px;
+  }
+
+  .navbar-logo {
+    margin-left: 0;          /* ⬅️ reset on mobile */
   }
 
   .navbar-logo img {
@@ -189,7 +194,6 @@
     right: 0;
   }
 
-  /* Disable hover dropdown on mobile */
   .dropdown-menu {
     display: none;
   }
