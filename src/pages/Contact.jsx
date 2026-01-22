@@ -47,104 +47,81 @@ ${formData.message || "N/A"}
 
   return (
     <section className="contact-page">
-      {/* HEADER */}
-      <div className="contact-header">
-        <h1>
-          Schedule Your <span>Discovery Call</span>
-        </h1>
-        <p>Take the first step towards transforming your organization.</p>
-      </div>
+      {/* DARK HERO OVERLAY */}
+      <div className="contact-overlay" />
 
-      <form className="contact-container" onSubmit={handleSubmit}>
-        {/* LEFT */}
-        <div className="contact-card">
-          <h3>📅 Select Date & Time</h3>
-
-          <label>Select Date</label>
-          <input type="date" name="date" required onChange={handleChange} />
-
-          <label>Select Time</label>
-          <input type="time" name="time" required onChange={handleChange} />
+      {/* CONTENT */}
+      <div className="contact-content">
+        {/* HEADER */}
+        <div className="contact-header">
+          <h1>
+            Schedule Your <span>Discovery Call</span>
+          </h1>
+          <p>Take the first step towards transforming your organization.</p>
         </div>
 
-        {/* RIGHT */}
-        <div className="contact-card">
-          <h3>👤 Your Details</h3>
+        <form className="contact-container" onSubmit={handleSubmit}>
+          {/* LEFT */}
+          <div className="contact-card">
+            <h3>📅 Select Date & Time</h3>
 
-          <label>Full Name *</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            required
-            onChange={handleChange}
-          />
+            <label>Select Date</label>
+            <input type="date" name="date" required onChange={handleChange} />
 
-          <label>Email Address *</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-            onChange={handleChange}
-          />
+            <label>Select Time</label>
+            <input type="time" name="time" required onChange={handleChange} />
+          </div>
 
-          <label>Phone Number *</label>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Enter phone number"
-            required
-            onChange={handleChange}
-          />
+          {/* RIGHT */}
+          <div className="contact-card">
+            <h3>👤 Your Details</h3>
 
-          <label>Company Name *</label>
-          <input
-            type="text"
-            name="company"
-            placeholder="Company name"
-            required
-            onChange={handleChange}
-          />
+            <label>Full Name *</label>
+            <input type="text" name="name" required onChange={handleChange} />
 
-          <label>Training Requirement *</label>
-          <select name="training" required onChange={handleChange}>
-            <option value="">Select training type...</option>
-            <option>Corporate Training</option>
-            <option>Leadership Program</option>
-            <option>Technical Upskilling</option>
-            <option>Custom Training</option>
-          </select>
+            <label>Email Address *</label>
+            <input type="email" name="email" required onChange={handleChange} />
 
-          <label>Message / Additional Details</label>
-          <textarea
-            name="message"
-            placeholder="Tell us more..."
-            rows="4"
-            onChange={handleChange}
-          />
+            <label>Phone Number *</label>
+            <input type="tel" name="phone" required onChange={handleChange} />
 
-          <button className="contact-btn" type="submit">
-            Confirm Booking on WhatsApp
-          </button>
-        </div>
-      </form>
+            <label>Company Name *</label>
+            <input type="text" name="company" required onChange={handleChange} />
 
-      {/* CONTACT INFO */}
-      <div className="contact-info">
-        <div className="info-box">
-          📞 <strong>Call Us</strong>
-          <p>+91 84006 66686</p>
-        </div>
+            <label>Training Requirement *</label>
+            <select name="training" required onChange={handleChange}>
+              <option value="">Select training type...</option>
+              <option>Corporate Training</option>
+              <option>Leadership Program</option>
+              <option>Technical Upskilling</option>
+              <option>Custom Training</option>
+            </select>
 
-        <div className="info-box">
-          ✉️ <strong>Email Us</strong>
-          <p>saumyatripathi19@gmail.com</p>
-        </div>
+            <label>Message / Additional Details</label>
+            <textarea name="message" rows="4" onChange={handleChange} />
 
-        <div className="info-box">
-          📍 <strong>Visit Us</strong>
-          <p>B-4/138, Vishal Khand, Gomti Nagar, Lucknow, UP</p>
+            <button className="contact-btn" type="submit">
+              Confirm Booking on WhatsApp
+            </button>
+          </div>
+        </form>
+
+        {/* INFO */}
+        <div className="contact-info">
+          <div className="info-box">
+            📞 <strong>Call Us</strong>
+            <p>+91 84006 66686</p>
+          </div>
+
+          <div className="info-box">
+            ✉️ <strong>Email Us</strong>
+            <p>saumyatripathi19@gmail.com</p>
+          </div>
+
+          <div className="info-box">
+            📍 <strong>Visit Us</strong>
+            <p>B-4/138, Vishal Khand, Gomti Nagar, Lucknow, UP</p>
+          </div>
         </div>
       </div>
     </section>
