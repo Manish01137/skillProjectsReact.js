@@ -20,20 +20,34 @@ const Navbar = () => {
       <div className="navbar-container">
 
         {/* LOGO */}
-        <Link
-          to="/"
-          className="navbar-logo"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
           <img src={logo} alt="SkillOwl Logo" />
         </Link>
 
         {/* MENU */}
         <nav className={`navbar-menu ${menuOpen ? "open" : ""}`}>
+
           <NavLink to="/" onClick={() => setMenuOpen(false)}>Home</NavLink>
+
           <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
-          <NavLink to="/services" onClick={() => setMenuOpen(false)}>Services</NavLink>
+
+          {/* SERVICES DROPDOWN */}
+          <div className="nav-dropdown">
+            <span className="nav-link">Services</span>
+
+            <div className="dropdown-menu">
+              <NavLink to="/services/ld-training">Learning and Development</NavLink>
+              <NavLink to="/services/coaching">One-on-One Coaching</NavLink>
+              <NavLink to="/services/content">Content Development</NavLink>
+              <NavLink to="/services/outbound">Outbound</NavLink>
+              <NavLink to="/services/team-building">Team Building</NavLink>
+              <NavLink to="/services/emcee">Corporate Emcee</NavLink>
+              <NavLink to="/services/keynote">Keynote Speakers</NavLink>
+            </div>
+          </div>
+
           <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
+
         </nav>
 
         {/* HAMBURGER */}
