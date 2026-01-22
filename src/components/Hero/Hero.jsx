@@ -20,7 +20,6 @@ const Hero = () => {
 
   return (
     <section className="hero" id="hero">
-      {/* Background Images */}
       {images.map((img, index) => (
         <div
           key={index}
@@ -29,10 +28,8 @@ const Hero = () => {
         />
       ))}
 
-      {/* Overlay */}
       <div className="hero-overlay" />
 
-      {/* Content */}
       <div className="hero-content">
         <div className="hero-badge">
           <span className="dot" />
@@ -43,7 +40,7 @@ const Hero = () => {
           <span className="title-light">India&apos;s</span> <br />
           <span className="title-gold-strong">Corporate</span> <br />
           <span className="title-gold-soft">Skill</span> <br />
-          <span className="title-white">Development Partner</span>
+          <span className="title-white-soft">Development Partner</span>
         </h1>
 
         <p className="hero-subtitle">
@@ -71,14 +68,12 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Slider Dots */}
       <div className="hero-dots">
         {images.map((_, index) => (
           <span key={index} className={index === current ? "active" : ""} />
         ))}
       </div>
 
-      {/* Scroll Indicator */}
       <div className="scroll-indicator">
         SCROLL
         <span className="line" />
