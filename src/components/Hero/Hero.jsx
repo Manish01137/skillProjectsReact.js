@@ -11,16 +11,14 @@ const images = [hero1, hero2, hero3, hero4]
 const Hero = () => {
   const [current, setCurrent] = useState(0)
 
-  // 🔥 Faster + no pause slider
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length)
-    }, 4800) // ⬅️ slightly faster than transition
+    }, 4800)
 
     return () => clearInterval(interval)
   }, [])
 
-  // 🔥 Preload first image for instant render
   useEffect(() => {
     const img = new Image()
     img.src = images[0]
@@ -60,6 +58,7 @@ const Hero = () => {
           <button className="btn-outline">▶ Discovery Call</button>
         </div>
 
+        {/* ✅ FIXED: ALWAYS VISIBLE */}
         <div className="hero-stats">
           <div className="stat">
             <h3>500+</h3>
@@ -81,8 +80,6 @@ const Hero = () => {
           <span key={index} className={index === current ? "active" : ""} />
         ))}
       </div>
-
-      
     </section>
   )
 }

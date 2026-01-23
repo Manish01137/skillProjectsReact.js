@@ -1,13 +1,17 @@
+/* ===============================
+   HERO WRAPPER
+================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;           /* FIX: allow content to grow */
+  overflow-x: hidden;          /* FIX: prevent horizontal cut */
   background: #131829;
   color: #ffffff;
+  padding-bottom: 80px;        /* FIX: space for stats */
 }
 
 /* ===============================
-   BACKGROUND SLIDER (NO PAUSE)
+   BACKGROUND SLIDER
 ================================ */
 .hero-bg {
   position: absolute;
@@ -15,8 +19,8 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  will-change: opacity, transform;
   transform: scale(1.03);
+  will-change: opacity, transform;
   transition:
     opacity 1.2s ease-in-out,
     transform 4.8s linear;
@@ -155,15 +159,17 @@
 }
 
 /* ===============================
-   STATS
+   STATS (DESKTOP FIX)
 ================================ */
 .hero-stats {
   display: flex;
   gap: 50px;
+  margin-top: 10px;
 }
 
 .stat h3 {
   font-size: 34px;
+  font-weight: 600;
 }
 
 .stat p {
@@ -189,6 +195,7 @@
   height: 8px;
   background: #6b7280;
   border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
 .hero-dots span.active {
@@ -198,7 +205,7 @@
 }
 
 /* ===============================
-   SCROLL
+   SCROLL INDICATOR (OPTIONAL)
 ================================ */
 .scroll-indicator {
   position: absolute;
@@ -236,6 +243,7 @@
 
   .hero-stats {
     justify-content: space-between;
+    gap: 20px;
   }
 
   .scroll-indicator {
