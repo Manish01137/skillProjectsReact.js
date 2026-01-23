@@ -2,12 +2,12 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  color: #ffffff;
   background: #131829;
+  color: #ffffff;
 }
 
 /* ===============================
-   BACKGROUND SLIDER
+   BACKGROUND SLIDER (NO PAUSE)
 ================================ */
 .hero-bg {
   position: absolute;
@@ -15,8 +15,11 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transform: scale(1);
-  transition: opacity 1.8s ease, transform 6.5s ease;
+  will-change: opacity, transform;
+  transform: scale(1.03);
+  transition:
+    opacity 1.2s ease-in-out,
+    transform 4.8s linear;
 }
 
 .hero-bg.active {
@@ -72,42 +75,33 @@
 }
 
 /* ===============================
-   TITLE (MATCH IMAGE)
+   TITLE
 ================================ */
 .hero-title {
   font-size: 58px;
   line-height: 1.1;
   margin-bottom: 22px;
-  letter-spacing: -0.6px;
+  font-weight: 600;
 }
 
 .title-light {
-  color: rgba(248, 250, 252, 0.95);
+  color: rgba(248, 250, 252, 0.88);
 }
 
 .title-gold-strong {
-  background: linear-gradient(
-    180deg,
-    #f5b301 0%,
-    #fbbf24 45%,
-    #fde68a 100%
-  );
+  background: linear-gradient(180deg, #f5b301, #fbbf24, #fde68a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .title-gold-soft {
-  background: linear-gradient(
-    180deg,
-    #fde68a 0%,
-    #fff1b8 100%
-  );
+  background: linear-gradient(180deg, #fde68a, #fff4c4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.title-white {
-  color: rgba(255, 255, 255, 0.98);
+.title-white-soft {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ===============================
@@ -116,9 +110,9 @@
 .hero-subtitle {
   font-size: 18px;
   line-height: 1.65;
-  color: rgba(226, 232, 240, 0.9);
   max-width: 520px;
   margin-bottom: 44px;
+  color: rgba(226, 232, 240, 0.9);
 }
 
 /* ===============================
@@ -126,46 +120,38 @@
 ================================ */
 .hero-actions {
   display: flex;
-  gap: 22px;
+  gap: 26px;
   margin-bottom: 56px;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   border: none;
-  padding: 15px 32px;
-  border-radius: 32px;
-  font-weight: 600;
+  padding: 18px 42px;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #ffffff;
   cursor: pointer;
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 25px rgba(251, 191, 36, 0.45),
-    0 0 45px rgba(251, 191, 36, 0.25);
+  transform: translateY(-3px);
 }
 
-/* SILVER GLASS BUTTON */
 .btn-outline {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(203, 213, 225, 0.35);
-  padding: 15px 30px;
-  border-radius: 32px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  padding: 18px 40px;
+  border-radius: 40px;
+  font-size: 16px;
   color: #ffffff;
   cursor: pointer;
-  backdrop-filter: blur(6px);
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
-  background: rgba(203, 213, 225, 0.18);
-  border-color: rgba(226, 232, 240, 0.6);
-  transform: translateY(-2px);
-  box-shadow:
-    0 10px 25px rgba(148, 163, 184, 0.25),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* ===============================
@@ -178,13 +164,12 @@
 
 .stat h3 {
   font-size: 34px;
-  margin-bottom: 6px;
 }
 
 .stat p {
   font-size: 13px;
-  color: #9ca3af;
   letter-spacing: 1px;
+  color: #9ca3af;
 }
 
 /* ===============================
@@ -208,8 +193,8 @@
 
 .hero-dots span.active {
   width: 22px;
-  border-radius: 10px;
   background: #fbbf24;
+  border-radius: 10px;
 }
 
 /* ===============================
@@ -229,17 +214,13 @@
   height: 40px;
   width: 1px;
   background: #9ca3af;
-  margin: 10px auto 0;
+  margin-top: 10px;
 }
 
 /* ===============================
    MOBILE
 ================================ */
 @media (max-width: 768px) {
-  .hero {
-    height: 100svh;
-  }
-
   .hero-content {
     padding: 120px 20px 0;
     text-align: center;
@@ -247,129 +228,17 @@
 
   .hero-title {
     font-size: 34px;
-    line-height: 1.15;
-  }
-
-  .hero-subtitle {
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0 auto 30px;
   }
 
   .hero-actions {
     flex-direction: column;
   }
 
-  .btn-primary,
-  .btn-outline {
-    width: 100%;
-  }
-
   .hero-stats {
     justify-content: space-between;
-    gap: 10px;
-  }
-
-  .stat h3 {
-    font-size: 22px;
-  }
-
-  .stat p {
-    font-size: 10px;
   }
 
   .scroll-indicator {
     display: none;
   }
-}
-/* ===============================
-   BUTTONS (UPDATED)
-================================ */
-.hero-actions {
-  display: flex;
-  gap: 26px;
-  margin-bottom: 56px;
-}
-
-/* PRIMARY BUTTON */
-.btn-primary {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  border: none;
-  padding: 18px 42px;              /* ⬅️ BIGGER */
-  border-radius: 40px;
-  font-weight: 600;
-  font-size: 16px;
-  color: #ffffff;                  /* ⬅️ WHITE TEXT */
-  cursor: pointer;
-  transition: all 0.35s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 30px rgba(251, 191, 36, 0.45),
-    0 0 55px rgba(251, 191, 36, 0.25);
-}
-
-/* SECONDARY BUTTON */
-.btn-outline {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.45);
-  padding: 18px 40px;              /* ⬅️ BIGGER */
-  border-radius: 40px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #ffffff;                  /* ⬅️ WHITE TEXT */
-  cursor: pointer;
-  transition: all 0.35s ease;
-}
-
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.8);
-  transform: translateY(-3px);
-}
-/* ===============================
-   TITLE (LIGHTER LIKE IMAGE)
-================================ */
-.hero-title {
-  font-size: 58px;
-  line-height: 1.1;
-  margin-bottom: 22px;
-  letter-spacing: -0.6px;
-  font-weight: 600; /* ⬅️ reduced heaviness */
-}
-
-/* India's */
-.title-light {
-  color: rgba(248, 250, 252, 0.88); /* ⬅️ softer white */
-}
-
-/* Corporate */
-.title-gold-strong {
-  background: linear-gradient(
-    180deg,
-    #f5b301 0%,
-    #fbbf24 45%,
-    #fde68a 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Skill */
-.title-gold-soft {
-  background: linear-gradient(
-    180deg,
-    #fde68a 0%,
-    #fff4c4 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Development Partner (lighter & softer) */
-.title-white-soft {
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
