@@ -1,13 +1,12 @@
 /* ===============================
-   HERO WRAPPER
+   HERO WRAPPER (SCROLL FIXED)
 ================================ */
 .hero {
   position: relative;
-  min-height: 100vh;           /* FIX: allow content to grow */
-  overflow-x: hidden;          /* FIX: prevent horizontal cut */
+  height: 100vh;              /* FIX: exact height */
+  overflow: hidden;           /* FIX: prevent scroll freeze */
   background: #131829;
   color: #ffffff;
-  padding-bottom: 80px;        /* FIX: space for stats */
 }
 
 /* ===============================
@@ -19,16 +18,14 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transform: scale(1.03);
+  transform: scale(1);
   will-change: opacity, transform;
-  transition:
-    opacity 1.2s ease-in-out,
-    transform 4.8s linear;
+  transition: opacity 1.2s ease-in-out, transform 6s ease-out;
 }
 
 .hero-bg.active {
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* ===============================
@@ -44,6 +41,7 @@
     rgba(39, 37, 46, 0.6) 70%,
     rgba(39, 37, 46, 0.25) 100%
   );
+  z-index: 1;
 }
 
 /* ===============================
@@ -128,6 +126,7 @@
   margin-bottom: 56px;
 }
 
+/* 🔥 GLOWING CTA */
 .btn-primary {
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   border: none;
@@ -136,11 +135,31 @@
   font-size: 16px;
   color: #ffffff;
   cursor: pointer;
-  transition: all 0.3s ease;
+  position: relative;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 0 rgba(251, 191, 36, 0);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
+  box-shadow:
+    0 0 18px rgba(251, 191, 36, 0.65),
+    0 0 36px rgba(251, 191, 36, 0.35);
+}
+
+/* Optional soft glow layer */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
 }
 
 .btn-outline {
@@ -159,12 +178,11 @@
 }
 
 /* ===============================
-   STATS (DESKTOP FIX)
+   STATS
 ================================ */
 .hero-stats {
   display: flex;
   gap: 50px;
-  margin-top: 10px;
 }
 
 .stat h3 {
@@ -179,7 +197,7 @@
 }
 
 /* ===============================
-   DOTS
+   SLIDER DOTS
 ================================ */
 .hero-dots {
   position: absolute;
@@ -188,6 +206,7 @@
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
+  z-index: 3;
 }
 
 .hero-dots span {
@@ -205,26 +224,6 @@
 }
 
 /* ===============================
-   SCROLL INDICATOR (OPTIONAL)
-================================ */
-.scroll-indicator {
-  position: absolute;
-  right: 25px;
-  bottom: 80px;
-  writing-mode: vertical-rl;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #9ca3af;
-}
-
-.scroll-indicator .line {
-  height: 40px;
-  width: 1px;
-  background: #9ca3af;
-  margin-top: 10px;
-}
-
-/* ===============================
    MOBILE
 ================================ */
 @media (max-width: 768px) {
@@ -239,14 +238,11 @@
 
   .hero-actions {
     flex-direction: column;
+    align-items: center;
   }
 
   .hero-stats {
     justify-content: space-between;
     gap: 20px;
-  }
-
-  .scroll-indicator {
-    display: none;
   }
 }
